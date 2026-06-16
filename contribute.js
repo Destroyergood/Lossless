@@ -424,27 +424,29 @@ document.addEventListener('DOMContentLoaded', () => {
         row.className   = 'song-entry-row';
         row.dataset.id  = id;
         row.innerHTML = `
-            <div class="song-entry-search" style="margin-bottom: 1rem;">
-                <div class="existing-search-box">
-                    <i class="fas fa-search existing-search-icon"></i>
-                    <input type="text" class="song-api-search" placeholder="Search YT Music for song..." autocomplete="off">
-                    <i class="fas fa-circle-notch fa-spin search-loader" style="display: none; position: absolute; right: 1rem; color: var(--text-dim);"></i>
+            <div class="song-entry-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="song-entry-search" style="margin-bottom: 0.75rem;">
+                    <div class="existing-search-box">
+                        <i class="fas fa-search existing-search-icon"></i>
+                        <input type="text" class="song-api-search" placeholder="Search YT Music for song..." autocomplete="off">
+                        <i class="fas fa-circle-notch fa-spin search-loader" style="display: none; position: absolute; right: 1rem; color: var(--text-dim);"></i>
+                    </div>
+                    <div class="api-search-results existing-results-list" style="display: none; max-height: 250px; overflow-y: auto; margin-top: 0.5rem; position: absolute; z-index: 10; width: calc(100% - 3.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
                 </div>
-                <div class="api-search-results existing-results-list" style="display: none; max-height: 250px; overflow-y: auto; margin-top: 0.5rem;"></div>
-            </div>
-            <div class="song-entry-fields">
-                <input type="text"
-                       class="song-entry-song"
-                       placeholder="Song title (e.g. Lost in Yesterday)"
-                       autocomplete="off"
-                       maxlength="120"
-                       value="${escapeAttr(songVal)}">
-                <input type="text"
-                       class="song-entry-artist"
-                       placeholder="Artist name (e.g. Tame Impala)"
-                       autocomplete="off"
-                       maxlength="120"
-                       value="${escapeAttr(artistVal)}">
+                <div class="song-entry-fields">
+                    <input type="text"
+                           class="song-entry-song"
+                           placeholder="Song title (e.g. Lost in Yesterday)"
+                           autocomplete="off"
+                           maxlength="120"
+                           value="${escapeAttr(songVal)}">
+                    <input type="text"
+                           class="song-entry-artist"
+                           placeholder="Artist name (e.g. Tame Impala)"
+                           autocomplete="off"
+                           maxlength="120"
+                           value="${escapeAttr(artistVal)}">
+                </div>
             </div>
             <button type="button" class="btn-remove-song-entry" title="Remove this entry">
                 <i class="fas fa-trash-alt"></i>
